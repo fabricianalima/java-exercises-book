@@ -1,7 +1,7 @@
 # ☕ Java Exercises Book
 
 <p align="center">
-  <img src="images/capa java.png" alt="200 Exercícios de Java" width="250">
+  <img src="images/capa java.jpg" alt="200 Exercícios de Java" width="250">
 </p>
 
 ## 📖 Sobre
