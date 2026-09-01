@@ -8,10 +8,17 @@
 
 <body>
 
-<h1 th:text="${nome}">Olá!</h1>
+<h1 th:text="${nome}">Fabi</h1>
 
-<p>Minha primeira página com Spring Boot + Thymeleaf.</p>
+<p>Minha jornada de aprendizado em Java.</p>
+
+<h2>Capítulos</h2>
+
+<ul>
+    <li th:each="capitulo : ${capitulos}"
+        th:text="${capitulo}">
+    </li>
+</ul>
 
 </body>
-
 </html>
