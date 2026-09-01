@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import site.model.Capitulo;
 
 @Controller
@@ -19,27 +20,33 @@ public class SiteController {
                 new Capitulo(
                         "Introdução ao Java",
                         "Fundamentos da linguagem Java",
-                        "/introducao-java"
+                        "/introducao-java",
+                        "introducao-java"
                 ),
                 new Capitulo(
                         "Operadores",
                         "Operadores aritméticos, relacionais e lógicos",
-                        "/operadores"
+                        "/operadores",
+                        "operadores"
+
                 ),
                 new Capitulo(
                         "Controle de Fluxo",
                         "Condicionais e estruturas de repetição",
-                        "/controle-de-fluxo"
+                        "/controle-de-fluxo",
+                        "controle-de-fluxo"
                 ),
                 new Capitulo(
                         "Collections",
                         "Estruturas para trabalhar com coleções de dados",
-                        "/collections"
+                        "/collections",
+                        "collections"
                 ),
                 new Capitulo(
                         "Exceptions",
                         "Tratamento de exceções em Java",
-                        "/exceptions"
+                        "/exceptions",
+                        "exceptions"
                 )
         );
 
@@ -47,18 +54,64 @@ public class SiteController {
 
         return "index";
     }
+/*
+    @GetMapping("/capitulo/{slug}")
+    public String capitulo(@PathVariable String slug, Model model) {
 
-    @GetMapping("/introducao-java")
-    public String introducaoJava(Model model) {
+        System.out.println("Capítulo solicitado: " + slug);
 
-        Capitulo capitulo = new Capitulo(
-                "Introdução à Programação Java",
-                "Fundamentos da linguagem Java",
-                "/introducao-java"
+        model.addAttribute("slug", slug);
+
+        return "capitulo";
+    }
+*/
+    @GetMapping("/capitulo/{slug}")
+    public String capitulo(@PathVariable String slug, Model model) {
+
+        List<Capitulo> capitulos = List.of(
+                new Capitulo(
+                        "Introdução ao Java",
+                        "Fundamentos da linguagem Java",
+                        "/capitulo/introducao-java",
+                        "introducao-java"
+                ),
+                new Capitulo(
+                        "Operadores",
+                        "Operadores aritméticos, relacionais e lógicos",
+                        "/capitulo/operadores",
+                        "operadores"
+                ),
+                new Capitulo(
+                        "Controle de Fluxo",
+                        "Condicionais e estruturas de repetição",
+                        "/capitulo/controle-de-fluxo",
+                        "controle-de-fluxo"
+                ),
+                new Capitulo(
+                        "Collections",
+                        "Estruturas para trabalhar com coleções de dados",
+                        "/capitulo/collections",
+                        "collections"
+                ),
+                new Capitulo(
+                        "Exceptions",
+                        "Tratamento de exceções em Java",
+                        "/capitulo/exceptions",
+                        "exceptions"
+                )
         );
 
-        model.addAttribute("capitulo", capitulo);
+        for (Capitulo capitulo : capitulos) {
 
-        return "introducao-java";
+            if (capitulo.getSlug().equals(slug)) {
+
+                model.addAttribute("capitulo", capitulo);
+
+                return "capitulo";
+            }
+        }
+
+        return "redirect:/";
     }
 }
+
