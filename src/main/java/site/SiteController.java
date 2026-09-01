@@ -1,5 +1,7 @@
 package site;
+
 import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,5 +46,19 @@ public class SiteController {
         model.addAttribute("capitulos", capitulos);
 
         return "index";
+    }
+
+    @GetMapping("/introducao-java")
+    public String introducaoJava(Model model) {
+
+        Capitulo capitulo = new Capitulo(
+                "Introdução à Programação Java",
+                "Fundamentos da linguagem Java",
+                "/introducao-java"
+        );
+
+        model.addAttribute("capitulo", capitulo);
+
+        return "introducao-java";
     }
 }
