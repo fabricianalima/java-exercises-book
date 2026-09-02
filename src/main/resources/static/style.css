@@ -1,0 +1,89 @@
+/* =========================
+   Base
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #1f2937;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   Layout
+   ========================= */
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+
+/* =========================
+   Cabeçalho
+   ========================= */
+
+.header {
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    font-size: 42px;
+}
+
+.header p {
+    color: #6b7280;
+    font-size: 18px;
+}
+
+
+/* =========================
+   Capítulos
+   ========================= */
+
+.capitulos {
+    display: grid;
+    gap: 16px;
+}
+
+.capitulo-card {
+    display: block;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.capitulo-card:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.capitulo-card h2 {
+    margin: 0 0 8px;
+    color: #111827;
+}
+
+.capitulo-card p {
+    margin: 0;
+    color: #6b7280;
+}

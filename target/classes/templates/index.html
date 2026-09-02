@@ -4,25 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Java Exercises Book</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-<h1 th:text="${nome}">Fabi</h1>
+<div class="container">
 
-<p>Minha jornada de aprendizado em Java.</p>
+    <header class="header">
+        <h1>☕ Java Exercises Book</h1>
 
-<h2>Capítulos</h2>
+        <p>
+            Minha jornada de aprendizado em Java.
+        </p>
+    </header>
 
-<li th:each="capitulo : ${capitulos}">
+    <main>
 
-<a th:href="${capitulo.url}"
-   th:text="${capitulo.nome}">
-</a>
+        <h2>Capítulos</h2>
 
-<p th:text="${capitulo.descricao}"></p>
+        <div class="capitulos">
 
-</li>
+            <a
+                    class="capitulo-card"
+                    th:each="capitulo : ${capitulos}"
+                    th:href="${capitulo.url}"
+            >
+
+                <h2 th:text="${capitulo.nome}">
+                    Nome do capítulo
+                </h2>
+
+                <p th:text="${capitulo.descricao}">
+                    Descrição do capítulo
+                </p>
+
+            </a>
+
+        </div>
+
+    </main>
+
+</div>
 
 </body>
 </html>

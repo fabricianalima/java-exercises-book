@@ -29,31 +29,31 @@ public class SiteController {
                 new Capitulo(
                         "Introdução ao Java",
                         "Fundamentos da linguagem Java",
-                        "/introducao-java",
+                        "/capitulo/introducao-java",
                         "introducao-java"
                 ),
                 new Capitulo(
                         "Operadores",
                         "Operadores aritméticos, relacionais e lógicos",
-                        "/operadores",
+                        "/capitulo/operadores",
                         "operadores"
                 ),
                 new Capitulo(
                         "Controle de Fluxo",
                         "Condicionais e estruturas de repetição",
-                        "/controle-de-fluxo",
-                        "controle-de-fluxo"
+                        "/capitulo/controle-de-fluxos",
+                        "controle-de-fluxos"
                 ),
                 new Capitulo(
                         "Collections",
                         "Estruturas para trabalhar com coleções de dados",
-                        "/collections",
+                        "/capitulo/collections",
                         "collections"
                 ),
                 new Capitulo(
                         "Exceptions",
                         "Tratamento de exceções em Java",
-                        "/exceptions",
+                        "/capitulo/exceptions",
                         "exceptions"
                 )
         );
