@@ -1,4 +1,4 @@
-package site;
+package site.markdown;
 
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
@@ -64,9 +64,15 @@ public class MarkdownService {
                     + codigo
                     + "\n```";
 
-            markdown = markdown.substring(0, inicio)
-                    + blocoCodigo
-                    + markdown.substring(fim + marcadorFim.length());
+            String marcadorCompleto = markdown.substring(
+                    inicio,
+                    fim + marcadorFim.length()
+            );
+
+            markdown = markdown.replace(
+                    marcadorCompleto,
+                    blocoCodigo
+            );
 
             inicio = markdown.indexOf(marcadorInicio);
         }

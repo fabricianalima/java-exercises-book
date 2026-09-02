@@ -22,25 +22,60 @@
 
     <main>
 
-        <h2>Capítulos</h2>
+        <h2>Meus estudos</h2>
 
-        <div class="capitulos">
+        <div class="temas">
 
-            <a
-                    class="capitulo-card"
-                    th:each="capitulo : ${capitulos}"
-                    th:href="${capitulo.url}"
+            <section
+                    class="tema"
+                    th:each="tema : ${temas}"
             >
 
-                <h2 th:text="${capitulo.nome}">
-                    Nome do capítulo
-                </h2>
+                <div class="tema-header">
 
-                <p th:text="${capitulo.descricao}">
-                    Descrição do capítulo
-                </p>
+                <span
+                        class="tema-icone"
+                        th:text="${tema.icone}"
+                >
+                    ☕
+                </span>
 
-            </a>
+                    <div>
+
+                        <h2 th:text="${tema.nome}">
+                            Nome do tema
+                        </h2>
+
+                        <p th:text="${tema.descricao}">
+                            Descrição do tema
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="capitulos">
+
+                    <a
+                            class="capitulo-card"
+                            th:each="capitulo : ${tema.capitulos}"
+                            th:href="${capitulo.url}"
+                    >
+
+                        <h3 th:text="${capitulo.nome}">
+                            Nome do capítulo
+                        </h3>
+
+                        <p th:text="${capitulo.descricao}">
+                            Descrição do capítulo
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </section>
 
         </div>
 

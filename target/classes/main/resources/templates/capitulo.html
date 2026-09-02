@@ -4,17 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Java Exercises Book</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
 
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-<div th:utext="${conteudo}"></div>
+<div class="container">
 
-<p>
-    <a href="/">← Voltar para os capítulos</a>
-</p>
+    <a class="voltar" href="/">
+        ← Voltar para os capítulos
+    </a>
+
+    <article class="conteudo">
+
+        <div th:utext="${conteudo}"></div>
+
+    </article>
+
+</div>
 
 </body>
 
