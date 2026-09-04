@@ -38,6 +38,35 @@
 
 <script>
     hljs.highlightAll();
+
+    document.querySelectorAll('.conteudo pre').forEach(pre => {
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'codigo-wrapper';
+
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        const botao = document.createElement('button');
+
+        botao.className = 'botao-copiar';
+        botao.textContent = 'Copiar';
+
+        botao.addEventListener('click', async () => {
+
+            const codigo = pre.querySelector('code').innerText;
+
+            await navigator.clipboard.writeText(codigo);
+
+            botao.textContent = '✓ Copiado!';
+
+            setTimeout(() => {
+                botao.textContent = 'Copiar';
+            }, 2000);
+        });
+
+        wrapper.appendChild(botao);
+    });
 </script>
 
 </body>

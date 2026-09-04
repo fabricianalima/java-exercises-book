@@ -226,7 +226,7 @@ a:hover {
     background-color: #1e293b;
     color: #e2e8f0;
 
-    padding: 24px;
+    padding: 40px 24px 24px;
     border-radius: 10px;
 
     overflow-x: auto;
@@ -240,4 +240,37 @@ a:hover {
 
 .conteudo code {
     font-family: "Courier New", monospace;
+}
+
+.codigo-wrapper {
+    position: relative;
+}
+
+.botao-copiar {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    padding: 6px 12px;
+
+    border: 1px solid #475569;
+    border-radius: 6px;
+
+    background-color: #334155;
+    color: #e2e8f0;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+}
+
+.botao-copiar:hover {
+    background-color: #475569;
+
+    transform: translateY(-1px);
 }
