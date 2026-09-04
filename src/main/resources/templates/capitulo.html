@@ -3,9 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+
     <title>Java Exercises Book</title>
 
     <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- Highlight.js -->
+    <link
+            rel="stylesheet"
+            th:href="@{/webjars/highlightjs__cdn-assets/11.11.1/styles/github-dark.min.css}"
+    >
 </head>
 
 <body>
@@ -23,6 +30,15 @@
     </article>
 
 </div>
+
+<!-- Highlight.js -->
+<script
+        th:src="@{/webjars/highlightjs__cdn-assets/11.11.1/highlight.min.js}">
+</script>
+
+<script>
+    hljs.highlightAll();
+</script>
 
 </body>
 

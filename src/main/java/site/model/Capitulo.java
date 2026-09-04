@@ -8,13 +8,13 @@ public class Capitulo {
     private String nome;
     private String descricao;
     private String url;
-    private String slug;
+    private String arquivo;
 
-    public Capitulo(String nome, String descricao, String url, String slug) {
+    public Capitulo(String nome, String descricao, String url, String arquivo) {
         this.nome = nome;
         this.descricao = descricao;
         this.url = url;
-        this.slug = slug;
+        this.arquivo = arquivo;
     }
 
     public String getNome() {
@@ -29,8 +29,8 @@ public class Capitulo {
         return url;
     }
 
-    public String getSlug() {
-        return slug;
+    public String getArquivo() {
+        return arquivo;
     }
 
     public static class Tema {

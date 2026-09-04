@@ -9,16 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import site.markdown.MarkdownService;
-import site.markdown.MarkdownService;
 import site.model.Capitulo;
+import site.service.CapituloService;
 
 @Controller
 public class SiteController {
 
     private final MarkdownService markdownService;
+    private final CapituloService capituloService;
 
-    public SiteController(MarkdownService markdownService) {
+    public SiteController(MarkdownService markdownService, CapituloService capituloService) {
         this.markdownService = markdownService;
+        this.capituloService = capituloService;
     }
 
     @GetMapping("/")
@@ -37,25 +39,31 @@ public class SiteController {
                                         "Introdução ao Java",
                                         "Fundamentos da linguagem Java",
                                         "/capitulo/introducao-java",
-                                        "introducao-java"
+                                        "java-fundamentos/01-introducao-java.md"
                                 ),
                                 new Capitulo(
-                                        "Operadores",
+                                        "Variáveis e Tipos",
+                                        "Variáveis e tipos primitivos do Java",
+                                        "/capitulo/variaveis-e-tipos",
+                                        "java-fundamentos/02-variaveis-e-tipos.md"
+                                ),
+                                new Capitulo(
+                                        "livro-200-exercicios/Operadores",
                                         "Operadores aritméticos, relacionais e lógicos",
                                         "/capitulo/operadores",
-                                        "operadores"
+                                        "java-fundamentos/03-operadores.md"
                                 ),
                                 new Capitulo(
                                         "Controle de Fluxo",
                                         "Condicionais e estruturas de repetição",
                                         "/capitulo/controle-de-fluxo",
-                                        "controle-de-fluxo"
+                                        "java-fundamentos/04-controle-de-fluxo.md"
                                 ),
                                 new Capitulo(
                                         "Collections",
                                         "Estruturas para trabalhar com coleções de dados",
                                         "/capitulo/collections",
-                                        "collections"
+                                        "java-fundamentos/collections.md"
                                 )
                         )
                 ),
@@ -112,7 +120,13 @@ public class SiteController {
             Model model
     ) throws IOException {
 
-        String html = markdownService.converter(slug + ".md");
+        String url = "/capitulo/" + slug;
+
+        Capitulo capitulo = capituloService.buscarPorUrl(url);
+
+        String html = markdownService.converter(
+                capitulo.getArquivo()
+        );
 
         model.addAttribute("conteudo", html);
 

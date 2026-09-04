@@ -19,4 +19,4 @@ Isso é exatamente o que o Java faz com if/else. Você usa condicionais quando p
 
 Vamos utilizar um exemplo em Java para colocar esses conceitos em prática.
 
-{{java:ControleDeFluxo/TesteIf.java}}
+{{java:livro-200-exercicios/ControleDeFluxo/TesteIf.java}}
